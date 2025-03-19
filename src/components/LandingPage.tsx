@@ -7,6 +7,7 @@ import { smoothScroll } from '../utils/smoothScroll';
 import GitHubStats from './GitHubStats';
 import { useTranslation } from '../hooks/useTranslation';
 import LanguageSwitcher from './LanguageSwitcher';
+import Footer from './Footer';
 
 const devIconSets = [
     ["html5", "css3", "javascript", "typescript", "react", "angular", "vuejs", "nodejs", "express", "nestjs", "sass", "webpack", "gulp", "npm", "yarn", "babel", "bootstrap", "tailwindcss", "jquery", "materialui"],
@@ -118,6 +119,7 @@ const LandingPage: React.FC = () => {
             </div>
             <About />
             <Projects />
+            <Footer />
         </>
     );
 };

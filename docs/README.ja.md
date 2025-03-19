@@ -11,14 +11,7 @@
 ## 翻訳
 
 - [English](/README.md)
-- [Español](/docs/README.es.md)
-- [Français](/docs/README.fr.md)
-- [Deutsch](/docs/README.de.md)
-- [Italiano](/docs/README.it.md)
-- [Polski](/docs/README.pl.md)
 - [日本語](/docs/README.ja.md)
-- [한국어](/docs/README.ko.md)
-- [中文](/docs/README.zh.md)
 
 ## はじめに
 
