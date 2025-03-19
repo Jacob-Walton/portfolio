@@ -1,0 +1,135 @@
+.section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content {
+    margin-top: 2rem;
+}
+
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.highlight {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.highlight h3 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}
+
+.courseList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.course {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.courseTitle {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.courseDetails {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.techCategories {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.techCategory {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.categoryTitle {
+    font-weight: 500;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background: var(--accent-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+
+.tag:hover {
+    opacity: 1;
+}
+
+.interests {
+    margin-top: 2rem;
+}
+
+.interests h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.interests ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+}
+
+.interests li {
+    background: var(--accent-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 2rem 1rem;
+    }
+
+    .highlights {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .highlight {
+        padding: 1.25rem;
+    }
+
+    .courseList, .techCategories {
+        gap: 1rem;
+    }
+}
