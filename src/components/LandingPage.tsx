@@ -80,13 +80,13 @@ const LandingPage: React.FC = () => {
                     variants={stagger}
                 >
                     <motion.h1 variants={fadeInUp}>
-                        {t('landing.title')}
+                        {t<string>('landing.title')}
                     </motion.h1>
                     <motion.p
                         className={styles.subtitle}
                         variants={fadeInUp}
                     >
-                        {t('landing.subtitle')}
+                        {t<string>('landing.subtitle')}
                     </motion.p>
                     <motion.div
                         className={styles.buttonContainer}
@@ -101,7 +101,18 @@ const LandingPage: React.FC = () => {
                             whileTap={{ scale: 0.98 }}
                         >
                             <i className="devicon-github-original"></i>
-                            {t('landing.githubButton')}
+                            {String(t('landing.githubButton'))}
+                        </motion.a>
+                        <motion.a
+                            href="https://www.linkedin.com/in/jacob-walton-588764362"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.linkedinButton}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                        >
+                            <i className="fab fa-linkedin"></i>
+                            LinkedIn
                         </motion.a>
                         <motion.button
                             onClick={() => smoothScroll('about')}
@@ -109,7 +120,7 @@ const LandingPage: React.FC = () => {
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                         >
-                            {t('common.viewWork')}
+                            {String(t('common.viewWork'))}
                         </motion.button>
                     </motion.div>
                     <motion.div variants={fadeInUp}>

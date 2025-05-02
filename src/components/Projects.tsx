@@ -5,6 +5,7 @@ import { useTranslation } from '../hooks/useTranslation';
 import type { ProjectStatus } from '../types/i18n';
 
 interface Project {
+    id: string;
     name: string;
     description: string;
     tech: string[];
@@ -12,32 +13,11 @@ interface Project {
     status: ProjectStatus;
 }
 
-const projects: Project[] = [
-    {
-        name: "Bus Info",
-        description: "ASP.NET Core web application serving bus information to students of Runshaw College (unofficially).",
-        tech: [".NET", "C#", "PostgreSQL", "Redis", "EntityFramework"],
-        url: "https://github.com/Jacob-Walton/buses-info",
-        status: "inDevelopment" 
-    },
-    {
-        name: "Package Manager",
-        description: "Simple CLI-based package manager written in Go",
-        tech: ["Go", "CLI"],
-        url: "https://github.com/Jacob-Walton/PackageManager",
-        status: "complete"
-    },
-    {
-        name: "Language LMC",
-        description: "An implementation of the Little Man Computer assembly language",
-        tech: ["TypeScript"],
-        url: "https://github.com/Jacob-Walton/language-lmc",
-        status: "functionallyComplete"
-    }
-];
-
 const Projects: React.FC = () => {
-    const { t } = useTranslation();
+    const { t, locale } = useTranslation();
+    
+    // Get projects from translations
+    const projects = t('projects.items') as Project[];
 
     return (
         <section id="projects" className={styles.section}>
@@ -45,7 +25,7 @@ const Projects: React.FC = () => {
             <div className={styles.grid}>
                 {projects.map((project, index) => (
                     <motion.div
-                        key={project.name}
+                        key={project.id}
                         className={styles.card}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}

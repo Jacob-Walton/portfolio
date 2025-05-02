@@ -32,8 +32,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
-    console.log("Request to GitHub Stats endpoint received");
-
     try {
         const headers = {
             'Authorization': `token ${GITHUB_TOKEN}`,

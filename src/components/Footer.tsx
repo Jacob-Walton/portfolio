@@ -9,22 +9,46 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} id="contact">
       <div className={styles.container}>
-        <p className={styles.copyright}>
+        <div className={styles.footerContent}>
+          <div className={styles.leftSection}>
+            <h3>{t('footer.contactMe')}</h3>
+            <div className={styles.contactItem}>
+              <i className="fas fa-envelope"></i>
+              <a href="mailto:jacob-walton@konpeki.co.uk">{t('footer.email')}</a>
+            </div>
+          </div>
+          
+          <div className={styles.rightSection}>
+            <h3>{t('footer.followMe')}</h3>
+            <div className={styles.socialLinks}>
+              <motion.a 
+                href="https://github.com/Jacob-Walton" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                aria-label="GitHub"
+              >
+                <i className="devicon-github-original"></i>
+              </motion.a>
+              <motion.a 
+                href="https://www.linkedin.com/in/jacob-walton-588764362"
+                target="_blank" 
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                aria-label="LinkedIn"
+              >
+                <i className="fab fa-linkedin"></i>
+              </motion.a>
+            </div>
+          </div>
+        </div>
+        
+        <div className={styles.copyright}>
           &copy; {currentYear} {t('footer.copyright')}
-        </p>
-        <div className={styles.links}>
-          <motion.a 
-            href="https://github.com/Jacob-Walton/portfolio" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className={styles.githubLink}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <i className="devicon-github-original"></i> GitHub
-          </motion.a>
         </div>
       </div>
     </footer>

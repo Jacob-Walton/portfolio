@@ -6,7 +6,8 @@
   "landing": {
     "title": "Jacob Walton",
     "subtitle": "Student developer based in Manchester. Currently studying A-Levels in Computer Science, Maths, and Physics.",
-    "githubButton": "GitHub"
+    "githubButton": "GitHub",
+    "linkedinButton": "LinkedIn"
   },
   "projects": {
     "title": "Projects",
@@ -15,7 +16,33 @@
       "complete": "Complete",
       "functionallyComplete": "Functionally Complete"
     },
-    "viewProject": "View Project"
+    "viewProject": "View Project",
+    "items": [
+      {
+        "id": "businfo",
+        "name": "Bus Info",
+        "description": "ASP.NET Core web application serving bus information to students of Runshaw College (unofficially).",
+        "tech": [".NET", "C#", "PostgreSQL", "Redis", "EntityFramework"],
+        "url": "https://github.com/Jacob-Walton/buses-info",
+        "status": "inDevelopment"
+      },
+      {
+        "id": "packagemanager",
+        "name": "Package Manager",
+        "description": "Simple CLI-based package manager written in Go",
+        "tech": ["Go", "CLI"],
+        "url": "https://github.com/Jacob-Walton/PackageManager",
+        "status": "complete"
+      },
+      {
+        "id": "languagelmc",
+        "name": "Language LMC",
+        "description": "An implementation of the Little Man Computer assembly language",
+        "tech": ["TypeScript"],
+        "url": "https://github.com/Jacob-Walton/language-lmc",
+        "status": "functionallyComplete"
+      }
+    ]
   },
   "githubStats": {
     "totalProjects": "Total Projects",
@@ -24,7 +51,7 @@
   },
   "about": {
     "title": "About Me",
-    "description": "Student developer building practical software solutions. Focused on backend systems and API design.",
+    "description": "Student developer with a drive for building scalable and realistic solutions to real-world problems. Currently focused on backend systems and API development. Always exploring new technologies whilst maintaining a strong foundation in software engineering principles.",
     "currentStudies": {
       "title": "Current Studies",
       "computerScience": {
@@ -51,9 +78,23 @@
       "tools": {
         "title": "Tools"
       }
+    },
+    "techStack": {
+      "title": "Technology Stack",
+      "categories": {
+        "languages": "Languages",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "databases": "Databases",
+        "devops": "DevOps",
+        "tools": "Tools"
+      }
     }
   },
   "footer": {
-    "copyright": "Jacob Walton. All rights reserved."
+    "copyright": "Jacob Walton. All rights reserved.",
+    "contactMe": "Contact Me",
+    "followMe": "Follow Me",
+    "email": "jacob-walton@konpeki.co.uk"
   }
 }

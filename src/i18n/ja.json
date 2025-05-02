@@ -6,7 +6,8 @@
   "landing": {
     "title": "Jacob Walton",
     "subtitle": "マンチェスター在住の学生開発者。現在、コンピュータサイエンス、数学、物理学のAレベルを勉強中。",
-    "githubButton": "GitHub"
+    "githubButton": "GitHub",
+    "linkedinButton": "LinkedIn"
   },
   "projects": {
     "title": "プロジェクト",
@@ -15,7 +16,33 @@
       "complete": "完了",
       "functionallyComplete": "機能的に完了"
     },
-    "viewProject": "プロジェクトを見る"
+    "viewProject": "プロジェクトを見る",
+    "items": [
+      {
+        "id": "businfo",
+        "name": "バス情報",
+        "description": "ランショー・カレッジの学生向けバス情報を提供するASP.NET Coreウェブアプリケーション（非公式）。",
+        "tech": [".NET", "C#", "PostgreSQL", "Redis", "EntityFramework"],
+        "url": "https://github.com/Jacob-Walton/buses-info",
+        "status": "inDevelopment"
+      },
+      {
+        "id": "packagemanager",
+        "name": "パッケージマネージャー",
+        "description": "Goで書かれたシンプルなCLIベースのパッケージマネージャー",
+        "tech": ["Go", "CLI"],
+        "url": "https://github.com/Jacob-Walton/PackageManager",
+        "status": "complete"
+      },
+      {
+        "id": "languagelmc",
+        "name": "Language LMC",
+        "description": "Little Man Computerアセンブリ言語の実装",
+        "tech": ["TypeScript"],
+        "url": "https://github.com/Jacob-Walton/language-lmc",
+        "status": "functionallyComplete"
+      }
+    ]
   },
   "githubStats": {
     "totalProjects": "総プロジェクト数",
@@ -24,7 +51,7 @@
   },
   "about": {
     "title": "私について",
-    "description": "実用的なソフトウェアソリューションを構築する学生開発者。バックエンドシステムとAPI設計に重点を置いています。",
+    "description": "実世界の問題に対してスケーラブルで現実的なソリューションを構築することに意欲を持つ学生開発者。現在はバックエンドシステムとAPI開発に焦点を当てています。ソフトウェアエンジニアリングの強固な基盤を保ちながら、常に新しい技術を探求しています。",
     "currentStudies": {
       "title": "現在の学習",
       "computerScience": {
@@ -51,9 +78,23 @@
       "tools": {
         "title": "ツール"
       }
+    },
+    "techStack": {
+      "title": "技術スタック",
+      "categories": {
+        "languages": "言語",
+        "frontend": "フロントエンド",
+        "backend": "バックエンド",
+        "databases": "データベース",
+        "devops": "DevOps",
+        "tools": "ツール"
+      }
     }
   },
   "footer": {
-    "copyright": "Jacob Walton. All rights reserved."
+    "copyright": "Jacob Walton. All rights reserved.",
+    "contactMe": "お問い合わせ",
+    "followMe": "フォローする",
+    "email": "jacob-walton@konpeki.co.uk"
   }
 }

@@ -90,6 +90,7 @@ const configureWebpack = (config) => {
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+	output: "standalone",
 	reactStrictMode: true,
 	webpack: configureWebpack,
 	i18n: {
