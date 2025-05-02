@@ -1,0 +1,59 @@
+{
+  "common": {
+    "viewWork": "作品を見る",
+    "status": "ステータス"
+  },
+  "landing": {
+    "title": "Jacob Walton",
+    "subtitle": "マンチェスター在住の学生開発者。現在、コンピュータサイエンス、数学、物理学のAレベルを勉強中。",
+    "githubButton": "GitHub"
+  },
+  "projects": {
+    "title": "プロジェクト",
+    "statuses": {
+      "inDevelopment": "開発中",
+      "complete": "完了",
+      "functionallyComplete": "機能的に完了"
+    },
+    "viewProject": "プロジェクトを見る"
+  },
+  "githubStats": {
+    "totalProjects": "総プロジェクト数",
+    "primaryLanguage": "主要言語",
+    "latestProject": "最新プロジェクト"
+  },
+  "about": {
+    "title": "私について",
+    "description": "実用的なソフトウェアソリューションを構築する学生開発者。バックエンドシステムとAPI設計に重点を置いています。",
+    "currentStudies": {
+      "title": "現在の学習",
+      "computerScience": {
+        "title": "コンピュータサイエンス",
+        "details": "プログラミング、システムアーキテクチャ、アルゴリズムなど"
+      },
+      "mathematics": {
+        "title": "数学",
+        "details": "純粋数学、統計学、力学など"
+      },
+      "physics": {
+        "title": "物理学",
+        "details": "力学、電気、波動など"
+      }
+    },
+    "technicalFocus": {
+      "title": "技術的焦点",
+      "languages": {
+        "title": "プログラミング言語"
+      },
+      "backend": {
+        "title": "バックエンド"
+      },
+      "tools": {
+        "title": "ツール"
+      }
+    }
+  },
+  "footer": {
+    "copyright": "Jacob Walton. All rights reserved."
+  }
+}

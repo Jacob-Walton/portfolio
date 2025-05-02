@@ -1,0 +1,59 @@
+{
+  "common": {
+    "viewWork": "View Work",
+    "status": "Status"
+  },
+  "landing": {
+    "title": "Jacob Walton",
+    "subtitle": "Student developer based in Manchester. Currently studying A-Levels in Computer Science, Maths, and Physics.",
+    "githubButton": "GitHub"
+  },
+  "projects": {
+    "title": "Projects",
+    "statuses": {
+      "inDevelopment": "In Development",
+      "complete": "Complete",
+      "functionallyComplete": "Functionally Complete"
+    },
+    "viewProject": "View Project"
+  },
+  "githubStats": {
+    "totalProjects": "Total Projects",
+    "primaryLanguage": "Primary Language",
+    "latestProject": "Latest Project"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Student developer building practical software solutions. Focused on backend systems and API design.",
+    "currentStudies": {
+      "title": "Current Studies",
+      "computerScience": {
+        "title": "Computer Science",
+        "details": "Programming, Systems Architecture, Algorithms, etc."
+      },
+      "mathematics": {
+        "title": "Mathematics",
+        "details": "Pure Mathematics, Statistics, Mechanics, etc."
+      },
+      "physics": {
+        "title": "Physics",
+        "details": "Mechanics, Electricity, Waves, etc."
+      }
+    },
+    "technicalFocus": {
+      "title": "Technical Focus",
+      "languages": {
+        "title": "Languages"
+      },
+      "backend": {
+        "title": "Backend"
+      },
+      "tools": {
+        "title": "Tools"
+      }
+    }
+  },
+  "footer": {
+    "copyright": "Jacob Walton. All rights reserved."
+  }
+}

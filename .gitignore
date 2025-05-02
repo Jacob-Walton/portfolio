@@ -53,10 +53,6 @@ Thumbs.db
 public/
 output/
 
-# Ignore all JSON files except package.json
-*.json
-!package.json
-
 # Ignore Python files
 *.py
 
