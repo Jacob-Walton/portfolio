@@ -11,11 +11,15 @@ services:
       REDIS_PORT: 6379
       NODE_ENV: production
     restart: unless-stopped
+    networks:
+      - redis-net
 
   redis:
     image: "redis:alpine"
+    container_name: redis
     ports:
       - "6379:6379"
+    command: ["redis-server", "--replicaof", "no", "one"]
     volumes:
       - redis_data:/data
     restart: unless-stopped
@@ -24,6 +28,11 @@ services:
       interval: 1s
       timeout: 3s
       retries: 30
+    networks:
+      - redis-net
 
 volumes:
   redis_data:
+
+networks:
+  redis-net:
