@@ -45,33 +45,83 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             return res.status(200).json(data);
         }
 
-        const [userResponse, reposResponse] = await Promise.all([
-            fetch(`https://api.github.com/users/${GITHUB_USERNAME}`, { headers }),
-            fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated`, { headers })
-        ]);
-
+        // Fetch user data
+        const userResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`, { headers });
         const userData = await userResponse.json();
-        const repos = await reposResponse.json();
 
-        // Calculate languages
+        // Fetch ALL repositories with pagination
+        let allRepos: any[] = [];
+        let page = 1;
+        let hasMore = true;
+
+        while (hasMore) {
+            const reposResponse = await fetch(
+                `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&page=${page}&sort=updated`, 
+                { headers }
+            );
+            const repos = await reposResponse.json();
+            
+            if (repos.length === 0) {
+                hasMore = false;
+            } else {
+                allRepos = allRepos.concat(repos);
+                page++;
+            }
+        }
+
+        // Calculate languages from ALL repositories by fetching language stats
         const languages: { [key: string]: number } = {};
-        repos
-            .filter((repo: any) => !repo.fork && repo.language)
-            .forEach((repo: any) => {
-                languages[repo.language] = (languages[repo.language] || 0) + 1;
-            });
+        
+        // Filter out forks and repos without languages endpoint
+        const validRepos = allRepos.filter((repo: any) => !repo.fork);
+        
+        // Fetch language data for each repository
+        for (const repo of validRepos) {
+            try {
+                const langResponse = await fetch(
+                    `https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/languages`,
+                    { headers }
+                );
+                
+                if (langResponse.ok) {
+                    const repoLanguages = await langResponse.json();
+                    
+                    // Add bytes of code for each language
+                    for (const [language, bytes] of Object.entries(repoLanguages)) {
+                        languages[language] = (languages[language] || 0) + (bytes as number);
+                    }
+                }
+            } catch (error) {
+                console.warn(`Failed to fetch languages for repo ${repo.name}:`, error);
+            }
+        }
 
-        // Get latest repo
-        const latestRepo = repos[0] ? {
-            name: repos[0].name,
-            date: repos[0].updated_at,
-            link: repos[0].html_url
+        // Get latest repo (first one since they're sorted by updated_at)
+        const latestRepoData = allRepos[0];
+        const latestRepo = latestRepoData ? {
+            name: latestRepoData.name,
+            date: latestRepoData.updated_at,
+            link: latestRepoData.html_url,
+            language: latestRepoData.language
         } : null;
+
+        // Calculate most used language by bytes of code
+        let mostFrequentLanguage: string | null = null;
+        let maxBytes = 0;
+        if (Object.keys(languages).length > 0) {
+            for (const lang in languages) {
+                if (languages[lang] > maxBytes) {
+                    maxBytes = languages[lang];
+                    mostFrequentLanguage = lang;
+                }
+            }
+        }
 
         const finalData = {
             userData,
             languages,
-            latestRepo
+            latestRepo,
+            mostFrequentLanguage
         };
 
         await redisClient.set(REDIS_CACHE, JSON.stringify(finalData), 'EX', (10 * 60));

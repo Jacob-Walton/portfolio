@@ -5,6 +5,10 @@ FROM node:23-bookworm-slim AS builder
 RUN corepack enable && corepack prepare pnpm@latest --activate
 WORKDIR /app
 COPY . .
+RUN if [ ! -f .env.production.local ]; then \
+    echo "Warning: .env.production.local not found. Creating an empty one." && \
+    touch .env.production.local; \
+    fi
 RUN pnpm install && pnpm run build
 RUN pnpm prune --prod
 RUN rm -rf node_modules/.cache

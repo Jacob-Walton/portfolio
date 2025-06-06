@@ -26,7 +26,9 @@ export interface GitHubStats {
         name: string;
         date: string;
         link: string;
+        language?: string | null;
     };
+    mostFrequentLanguage?: string | null;
 }
 
 /**
