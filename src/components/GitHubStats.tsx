@@ -65,7 +65,7 @@ const GitHubStats: React.FC = () => {
         },
         {
             label: t('githubStats.primaryLanguage'),
-            value: Object.entries(stats.languages)[0]?.[0] || "N/A",
+            value: stats.mostFrequentLanguage || "N/A",
             icon: "fa-solid fa-code"
         },
         {
