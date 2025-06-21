@@ -1,0 +1,146 @@
+.contact {
+  background: var(--bg-primary);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+  width: 100%;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.invitation {
+  padding-top: var(--space-4);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: var(--space-4);
+  color: var(--text-primary);
+}
+
+.message {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 350px;
+}
+
+.presence {
+  padding-top: var(--space-6);
+}
+
+.location {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid rgba(130, 130, 130, 0.1);
+}
+
+.detail {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.time {
+  font-family: 'Monaco', monospace;
+  font-size: 0.875rem;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+.connections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.link {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  text-decoration: none;
+  padding: var(--space-2) 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.2;
+  transition: width 0.3s ease;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.linkText {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-family: 'Monaco', monospace;
+}
+
+.linkType {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+.signature {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-8);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(130, 130, 130, 0.05);
+}
+
+.mark {
+  font-size: 2rem;
+  color: var(--accent);
+  opacity: 0.1;
+  font-family: var(--font-serif);
+}
+
+.copyright {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .presence {
+    padding-top: 0;
+  }
+  
+  .signature {
+    margin-top: var(--space-6);
+  }
+}

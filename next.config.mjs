@@ -106,16 +106,6 @@ const nextConfig = {
 			},
 		];
 	},
-	images: {
-		remotePatterns: [
-			{
-				protocol: "https",
-				hostname: "cdn.konpeki.co.uk",
-				port: "",
-				pathname: "/**",
-			},
-		],
-	},
 };
 
 export default nextConfig;

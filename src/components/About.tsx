@@ -1,61 +1,118 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import styles from '../styles/About.module.css';
 import { useTranslation } from '../hooks/useTranslation';
-import TechStack from './TechStack';
+import styles from '../styles/About.module.css';
+
+import {
+  SiTypescript,
+  SiJavascript,
+  SiGo,
+  SiPython,
+  SiC,
+  SiHtml5,
+  SiCss3,
+  SiSass,
+  SiNextdotjs,
+  SiFlutter,
+  SiTauri,
+  SiPostgresql,
+  SiMongodb,
+  SiRedis,
+  SiDocker,
+  SiGit,
+  SiAmazonwebservices,
+  SiHeroku,
+  SiGithub,
+  SiReact,
+} from 'react-icons/si';
+import { Icon } from '@iconify/react';
 
 const About: React.FC = () => {
-    const { t } = useTranslation();
-    
-    return (
-        <section id="about" className={styles.section}>
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-            >
-                <h2>{t('about.title')}</h2>
-                <div className={styles.content}>
-                    <div className={styles.infoCard + ' ' + styles.introCard}>
-                        <span className={styles.quoteMarkLeft}>&ldquo;</span>
-                        <p>{t('about.description')}</p>
-                        <span className={styles.quoteMarkRight}>&rdquo;</span>
-                    </div>
-                    
-                    <div className={styles.mainContent}>
-                        {/* Left side: Current Studies */}
-                        <div className={styles.columnLeft}>
-                            <div className={styles.infoCard}>
-                                <h3>{t('about.currentStudies.title')}</h3>
-                                <div className={styles.courseList}>
-                                    <div className={styles.course}>
-                                        <span className={styles.courseTitle}>{t('about.currentStudies.computerScience.title')}</span>
-                                        <span className={styles.courseDetails}>{t('about.currentStudies.computerScience.details')}</span>
-                                    </div>
-                                    <div className={styles.course}>
-                                        <span className={styles.courseTitle}>{t('about.currentStudies.mathematics.title')}</span>
-                                        <span className={styles.courseDetails}>{t('about.currentStudies.mathematics.details')}</span>
-                                    </div>
-                                    <div className={styles.course}>
-                                        <span className={styles.courseTitle}>{t('about.currentStudies.physics.title')}</span>
-                                        <span className={styles.courseDetails}>{t('about.currentStudies.physics.details')}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        {/* Right side: Tech Stack */}
-                        <div className={styles.columnRight}>
-                            <div className={styles.infoCard}>
-                                <h3>{t('about.techStack.title')}</h3>
-                                <TechStack />
-                            </div>
-                        </div>
-                    </div>
+  const { t } = useTranslation();
+
+  // Helper functions
+  const ReactIcon = (name: string, icon: React.ComponentType<{size: number}>) => ({ name, icon, isComponent: false });
+  const IconifyIcon = (name: string, icon: string) => ({ name, icon, isComponent: true });
+
+  const skills = {
+    languages: [
+      ReactIcon('TypeScript', SiTypescript),
+      ReactIcon('JavaScript', SiJavascript),
+      ReactIcon('Go', SiGo),
+      IconifyIcon('C#', 'devicon:csharp'),
+      ReactIcon('Python', SiPython),
+      ReactIcon('C', SiC)
+    ],
+    frontend: [
+      ReactIcon('HTML5', SiHtml5),
+      ReactIcon('CSS3', SiCss3),
+      ReactIcon('SCSS', SiSass),
+      ReactIcon('React', SiReact),
+      ReactIcon('Next.js', SiNextdotjs),
+      ReactIcon('Flutter', SiFlutter),
+      ReactIcon('Tauri', SiTauri),
+    ],
+    'data & cloud': [
+      ReactIcon('PostgreSQL', SiPostgresql),
+      ReactIcon('MongoDB', SiMongodb),
+      ReactIcon('Redis', SiRedis),
+      ReactIcon('AWS', SiAmazonwebservices),
+      IconifyIcon('Azure', 'devicon:azure'),
+      ReactIcon('Heroku', SiHeroku)
+    ],
+    tools: [
+      ReactIcon('Docker', SiDocker),
+      ReactIcon('Git', SiGit),
+      ReactIcon('GitHub', SiGithub),
+      IconifyIcon('VS Code', 'devicon:vscode'),
+      IconifyIcon('Figma', 'devicon:figma'),
+    ]
+  };
+
+  return (
+    <section id="about" className={`${styles.about} section`}>
+      <div className={styles.container}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className={styles.title}>{t('about.title')}</h2>
+          
+          <div className={styles.content}>
+            <div className={styles.bio}>
+              <p>
+                {t('about.intro')}
+              </p>
+            </div>
+
+            <div className={styles.skills}>
+              {Object.entries(skills).map(([category, items]) => (
+                <div key={category} className={styles.skillCategory}>
+                  <h3 className={styles.categoryTitle}>
+                    {t(`about.skills.${category.replace(' & ', '_').replace(' ', '_')}`)}
+                  </h3>
+                  <div className={styles.skillList}>
+                    {items.map((skill) => (
+                      <span key={skill.name} className={styles.skill}>
+                        {skill.isComponent ? (
+                          <Icon icon={skill.icon as string} width={14} height={14} />
+                        ) : (
+                          React.createElement(skill.icon as React.ComponentType<{size: number}>, { size: 14 })
+                        )}
+                        <span className={styles.skillName}>{skill.name}</span>
+                      </span>
+                    ))}
+                  </div>
                 </div>
-            </motion.div>
-        </section>
-    );
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
 };
 
 export default About;

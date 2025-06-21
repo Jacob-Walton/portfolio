@@ -1,219 +1,305 @@
-.section {
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+.about {
+  background: var(--bg-secondary);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: var(--space-5);
+  color: var(--text-primary);
 }
 
 .content {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-8);
+  align-items: start;
 }
 
-.mainContent {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+.bio {
+  max-width: none;
 }
 
-.columnLeft, .columnRight {
-    display: flex;
-    flex-direction: column;
+.bio p {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-3);
+  font-weight: 300;
 }
 
-.infoCard {
-    border-radius: 1rem;
-    padding: 1.5rem;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+.bio p:last-child {
+  margin-bottom: 0;
 }
 
-.introCard {
-    text-align: center;
-    padding: 2rem 3rem;
-    position: relative;
+.skills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
 }
 
-.introCard p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--text-color);
-    opacity: 0.9;
-    max-width: 800px;
-    margin: 0 auto;
-    font-style: italic;
-    position: relative;
-    z-index: 1;
+.skillCategory {
+  margin-bottom: var(--space-4);
 }
 
-.quoteMarkLeft, .quoteMarkRight {
-    font-size: 5rem;
-    line-height: 0;
-    position: absolute;
-    color: var(--accent-color);
-    opacity: 0.15;
-    font-family: 'Georgia', serif;
-    z-index: 0;
+.categoryTitle {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-2);
+  opacity: 0.7;
+  letter-spacing: 0.05em;
 }
 
-.quoteMarkLeft {
-    top: 2rem;
-    left: 1.5rem;
+.skillList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: space-between;
+  align-content: flex-start;
 }
 
-.quoteMarkRight {
-    bottom: 1.5rem;
-    right: 1.5rem;
+.skill {
+  flex: 1 1 auto;
+  min-width: fit-content;
+  padding: 8px var(--space-3);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 300;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  text-align: center;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.infoCard h3 {
-    color: var(--accent-color);
-    margin-bottom: 1.5rem;
-    font-size: 1.4rem;
-    text-align: center;
+.skill svg {
+  filter: grayscale(100%);
+  opacity: 0.7;
+  flex-shrink: 0;
+  margin-right: 4px;
 }
 
-.courseList {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    flex: 1;
+.skillName {
+  font-size: inherit;
+  line-height: 1;
+  margin-left: 4px;
 }
 
-.course {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding: 1rem;
-    transition: transform 0.2s ease;
-}
-
-.course:hover {
-    transform: translateY(-2px);
-}
-
-.courseTitle {
-    font-weight: 600;
-    color: var(--text-color);
-}
-
-.courseDetails {
-    font-size: 0.9rem;
-    color: var(--text-color);
-    opacity: 0.8;
-}
-
-@media (max-width: 900px) {
-    .mainContent {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .introCard {
-        padding: 2rem;
-    }
-    
-    .introCard p {
-        font-size: 1rem;
-        text-align: center;
-    }
-    
-    .quoteMarkLeft {
-        top: 1.5rem;
-        left: 1rem;
-        font-size: 4rem;
-    }
-    
-    .quoteMarkRight {
-        bottom: 1rem;
-        right: 1rem;
-        font-size: 4rem;
-    }
-    
-    .infoCard {
-        padding: 1.25rem;
-    }
-    
-    .infoCard h3 {
-        margin-bottom: 1.25rem;
-        font-size: 1.3rem;
-        text-align: left;
-    }
+.skill:hover {
+  background: var(--accent);
+  color: var(--bg-primary);
 }
 
 @media (max-width: 768px) {
-    .section {
-        padding: 2rem 1rem;
-    }
+  .about {
+    padding: var(--space-5) 0;
+  }
 
-    .highlights {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
+  .container {
+    padding: 0 var(--space-3);
+  }
 
-    .highlight {
-        padding: 1.25rem;
-    }
+  .title {
+    font-size: 1.375rem;
+    margin-bottom: var(--space-4);
+  }
 
-    .courseList, .techCategories {
-        gap: 1rem;
-    }
-    
-    .quoteMarkLeft, .quoteMarkRight {
-        font-size: 3.5rem;
-    }
+  .content {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  
+  .bio p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-3);
+  }
+  
+  .skills {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  
+  .categoryTitle {
+    margin-bottom: var(--space-2);
+    font-size: 0.8rem;
+  }
+  
+  .skillList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    justify-content: stretch;
+  }
+  
+  .skill {
+    flex: none;
+    padding: 10px 8px;
+    font-size: 0.8rem;
+    text-align: center;
+    gap: 8px;
+    min-width: 0;
+    justify-content: center;
+  }
+  
+  .skill svg {
+    width: 12px;
+    height: 12px;
+    margin-right: 2px;
+    flex-shrink: 0;
+  }
+  
+  .skillName {
+    margin-left: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 @media (max-width: 480px) {
-    .section {
-        padding: 2rem 1rem;
-    }
-    
-    .content {
-        margin-top: 1.5rem;
-        gap: 1rem;
-    }
-    
-    .introCard {
-        padding: 1.75rem 1.5rem;
-    }
-    
-    .introCard p {
-        font-size: 0.95rem;
-    }
-    
-    .quoteMarkLeft {
-        top: 1rem;
-        left: 0.75rem;
-        font-size: 3rem;
-    }
-    
-    .quoteMarkRight {
-        bottom: 0.5rem;
-        right: 0.75rem;
-        font-size: 3rem;
-    }
+  .container {
+    padding: 0 var(--space-2);
+  }
 
-    .infoCard {
-        padding: 1rem;
-    }
-    
-    .infoCard h3 {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-    }
-    
-    .course {
-        padding: 0.875rem;
-    }
-    
-    .courseTitle {
-        font-size: 0.95rem;
-    }
-    
-    .courseDetails {
-        font-size: 0.85rem;
-    }
+  .title {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .content {
+    gap: var(--space-4);
+  }
+  
+  .bio p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .skills {
+    gap: var(--space-3);
+  }
+
+  .categoryTitle {
+    font-size: 0.75rem;
+    margin-bottom: var(--space-1);
+  }
+  
+  .skillList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  
+  .skill {
+    font-size: 0.75rem;
+    padding: 8px 6px;
+    gap: 6px;
+  }
+  
+  .skill svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .skillName {
+    font-size: 0.7rem;
+  }
+}
+
+.skill {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--accent);
+  opacity: 0.05;
+  transition: width 0.3s ease;
+}
+
+.skill:hover::before {
+  width: 100%;
+}
+
+.categoryTitle {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--accent);
+  opacity: 0.4;
+  font-weight: 300;
+}
+
+.skillItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+@media (max-width: 768px) {
+  .bio {
+    margin-left: 0;
+  }
+  
+  .title {
+    padding-left: 0;
+  }
+  
+  .title::before {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .bio p {
+    font-size: 1rem;
+  }
+  
+  .skill {
+    font-size: 0.875rem;
+    padding: var(--space-1) var(--space-2);
+  }
+  
+  .skillTag {
+    font-size: 0.875rem;
+    padding: var(--space-1) var(--space-2);
+  }
+  
+  .items {
+    gap: var(--space-1);
+  }
+  
+  .skillItems {
+    gap: var(--space-1);
+  }
 }

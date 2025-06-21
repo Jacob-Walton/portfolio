@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Jacob Walton",
+    "role": "Developer",
+    "subtitle": "Student developer based in Manchester. Currently studying A-Levels in Computer Science, Maths, and Physics.",
+    "viewWork": "View Projects"
+  },
+  "about": {
+    "title": "About",
+    "intro": "Currently studying A-Level Computer Science, Mathematics and Physics. Working on various projects including a full database management system with a custom SQL variant for my NEA.",
+    "skills": {
+      "title": "Technologies",
+      "languages": "Languages",
+      "frontend": "Frontend",
+      "data_cloud": "Data & Cloud",
+      "tools": "Tools"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "viewCode": "Source",
+    "viewProject": "View Live",
+    "status": {
+      "complete": "complete",
+      "active": "active",
+      "archived": "archived"
+    },
+    "items": {
+      "packagemanager": {
+        "title": "PackageManager",
+        "description": "A lightweight CLI-based package manager written in Go. Created to allow easy installation of .tar.gz packages"
+      },
+      "busesinfo": {
+        "title": "Buses Info",
+        "description": "Web application that presents college bus information and rankings in an accessible format. Improves on the existing system with better UX."
+      },
+      "nea": {
+        "title": "MonoDB",
+        "description": "Full-featured database with custom SQL variant and management interface. Allows for SQL, NoSQL, and Redis style tables. Includes query optimization and transaction handling. (A-Level NEA Project)"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Available for interesting projects and opportunities.",
+    "email": "Email",
+    "footer": "© 2024 Jacob Walton"
+  }
+}
