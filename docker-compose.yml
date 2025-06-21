@@ -3,36 +3,6 @@ services:
     build: .
     ports:
       - "14452:3000"
-    depends_on:
-      redis:
-        condition: service_healthy
     environment:
-      REDIS_HOST: redis
-      REDIS_PORT: 6379
       NODE_ENV: production
     restart: unless-stopped
-    networks:
-      - redis-net
-
-  redis:
-    image: "redis:alpine"
-    container_name: redis
-    ports:
-      - "6379:6379"
-    command: ["redis-server", "--replicaof", "no", "one"]
-    volumes:
-      - redis_data:/data
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 1s
-      timeout: 3s
-      retries: 30
-    networks:
-      - redis-net
-
-volumes:
-  redis_data:
-
-networks:
-  redis-net:
