@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "about": "概要",
+    "projects": "プロジェクト",
+    "contact": "連絡先"
+  },
+  "hero": {
+    "greeting": "Jacob Walton",
+    "role": "開発者",
+    "subtitle": "マンチェスター在住の学生開発者。現在、コンピューターサイエンス、数学、物理学のAレベルを学習中。",
+    "viewWork": "プロジェクトを見る"
+  },
+  "about": {
+    "title": "概要",
+    "intro": "現在、Aレベルのコンピューターサイエンス、数学、物理学を学習中。NEAのためのカスタムSQL変種を持つ完全なデータベース管理システムを含む様々なプロジェクトに取り組んでいます。",
+    "skills": {
+      "title": "技術",
+      "languages": "言語",
+      "frontend": "フロントエンド",
+      "data_cloud": "データ・クラウド",
+      "tools": "ツール"
+    }
+  },
+  "projects": {
+    "title": "プロジェクト",
+    "viewCode": "ソース",
+    "viewProject": "ライブ表示",
+    "status": {
+      "complete": "完了",
+      "active": "進行中",
+      "archived": "アーカイブ"
+    },
+    "items": {
+      "packagemanager": {
+        "title": "PackageManager",
+        "description": "Goで書かれた軽量CLIベースのパッケージマネージャー。.tar.gzパッケージの簡単なインストールを可能にするために作成"
+      },
+      "busesinfo": {
+        "title": "Buses Info",
+        "description": "大学のバス情報とランキングをアクセスしやすい形式で表示するウェブアプリケーション。より良いUXで既存のシステムを改善。"
+      },
+      "nea": {
+        "title": "MonoDB",
+        "description": "カスタムSQL変種と管理インターフェースを備えたフル機能のデータベース。SQL、NoSQL、Redisスタイルのテーブルに対応。クエリ最適化とトランザクション処理を含む。（AレベルNEAプロジェクト）"
+      }
+    }
+  },
+  "contact": {
+    "title": "連絡先",
+    "subtitle": "興味深いプロジェクトや機会をお待ちしています。",
+    "email": "メール",
+    "footer": "© 2024 Jacob Walton"
+  }
+}

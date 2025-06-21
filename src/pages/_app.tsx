@@ -1,40 +1,22 @@
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import { useEffect } from 'react';
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import { motion, AnimatePresence } from 'framer-motion'
+import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+import { AnimatePresence } from 'framer-motion';
+import Layout from '../components/Layout';
 
-function MyApp({ Component, pageProps, router }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
+    // Smooth scroll behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
   }, []);
+
   return (
-    <AnimatePresence mode='wait'>
-      <motion.div
-        key={router.route}
-        initial="pageInitial"
-        animate="pageAnimate"
-        exit="pageExit"
-        variants={{
-          pageInitial: {
-            opacity: 0
-          },
-          pageAnimate: {
-            opacity: 1
-          },
-          pageExit: {
-            opacity: 0
-          }
-        }}
-      >
+    <AnimatePresence mode="wait">
+      <Layout>
         <Component {...pageProps} />
-      </motion.div>
+      </Layout>
     </AnimatePresence>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

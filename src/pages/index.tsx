@@ -1,15 +1,25 @@
-import Head from 'next/head'
-import LandingPage from '../components/LandingPage'
+import Head from 'next/head';
+import Hero from '../components/Hero';
+import About from '../components/About';
+import Projects from '../components/Projects';
+import Contact from '../components/Contact';
+import ScrollIndicator from '../components/ScrollIndicator';
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Jacob Walton | Developer</title>
-        <meta name="description" content="Jacob Walton's Portfolio" />
+        <title>Jacob Walton - Developer</title>
+        <meta name="description" content="Developer portfolio - Jacob Walton" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <meta name="apple-mobile-web-app-title" content="Portfolio" />
       </Head>
-      <LandingPage />
+      <Hero />
+      <About />
+      <Projects />
+      <Contact />
+      <ScrollIndicator />
     </>
-  )
+  );
 }
