@@ -30,6 +30,7 @@ const Projects: React.FC = () => {
       title: 'Database Management System',
       description: t('projects.items.nea.description'),
       tech: 'Rust · SQL · Tauri',
+      github: 'https://github.com/Jacob-Walton/Mono-DB',
       status: 'active'
     },
     {
