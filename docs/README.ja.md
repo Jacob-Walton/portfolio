@@ -40,7 +40,6 @@ docker-compose up -d
 
 - Node.js (v18以上)
 - pnpm (v8以上)
-- Redis (v7以上)
 
 #### 依存関係のインストール
 

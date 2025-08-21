@@ -38,9 +38,8 @@ This will start the development server and you can access the website at `http:/
 
 #### Pre-requisites
 
-- Node.js (v18 or later)
+- Node.js (v20 or later)
 - pnpm (v8 or later)
-- Redis (v7 or later)
 
 #### Install dependencies
 
