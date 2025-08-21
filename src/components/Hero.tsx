@@ -8,9 +8,23 @@ const Hero: React.FC = () => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
-    const timer = setInterval(() => setTime(new Date()), 1000);
+    const updateTime = () => {
+      setTime(new Date());
+    };
+    
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
     return () => clearInterval(timer);
   }, []);
+
+  const formatTime = () => {
+    return time.toLocaleString('en-GB', {
+      timeZone: 'Europe/London',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    });
+  };
 
   return (
     <section className={styles.hero}>
@@ -28,11 +42,7 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className={styles.timestamp}>
-              {time.toLocaleTimeString('en-GB', { 
-                hour: '2-digit', 
-                minute: '2-digit',
-                hour12: false 
-              })}
+              {formatTime()}
             </div>
             <h1 className={styles.name}>
               <span className={styles.firstName}>Jacob</span>
