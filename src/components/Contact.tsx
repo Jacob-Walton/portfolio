@@ -82,8 +82,16 @@ const Contact: React.FC = () => {
           </div>
 
           <div className={styles.signature}>
-            <div className={styles.mark}>和</div>
-            <p className={styles.copyright}>© {new Date().getFullYear()}</p>
+            <div className={styles.footerContent}>
+              <div className={styles.copyrightSection}>
+                <p className={styles.copyright}>
+                  © {new Date().getFullYear()} Jacob Walton. All rights reserved.
+                </p>
+                <p className={styles.legalText}>
+                  {t('contact.footer.legal')}
+                </p>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

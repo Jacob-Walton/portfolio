@@ -32,29 +32,6 @@ const hashOnlyIdent = (context, _, exportName) => {
 };
 
 /**
- * Security headers to be applied to all routes
- */
-const securityHeaders = [
-	{ key: "X-XSS-Protection", value: "1; mode=block" },
-	{ key: "X-Frame-Options", value: "SAMEORIGIN" },
-	{ key: "X-Content-Type-Options", value: "nosniff" },
-	{ key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-	{
-		key: "Content-Security-Policy",
-		value: `
-		default-src 'self';
-		script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.googleapis.com;
-		style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;
-		img-src 'self' data: https://cdn.konpeki.co.uk;
-		font-src 'self' https://cdn.jsdelivr.net https://fonts.gstatic.com https://fonts.googleapis.com https://cdnjs.cloudflare.com;
-		connect-src 'self' https://cdn.jsdelivr.net;
-	  `
-			.replace(/\s{2,}/g, " ")
-			.trim(),
-	},
-];
-
-/**
  * Configures Webpack to use custom CSS module identifiers.
  *
  * @param {Object} config - The webpack configuration object
@@ -90,21 +67,11 @@ const configureWebpack = (config) => {
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-	output: "standalone",
+	output: "export",
 	reactStrictMode: true,
 	webpack: configureWebpack,
-	i18n: {
-		locales: ['en', 'ja'],
-		defaultLocale: 'en',
-		localeDetection: true
-	},
-	async headers() {
-		return [
-			{
-				source: "/(.*)",
-				headers: securityHeaders,
-			},
-		];
+	images: {
+		unoptimized: true,
 	},
 };
 

@@ -49,6 +49,9 @@
     "title": "連絡先",
     "subtitle": "興味深いプロジェクトや機会をお待ちしています。",
     "email": "メール",
-    "footer": "© 2024 Jacob Walton"
+    "footer": {
+      "tagline": "開発者・学生",
+      "legal": "マンチェスター、イギリス"
+    }
   }
 }

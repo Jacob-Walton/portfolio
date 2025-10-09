@@ -1,12 +1,11 @@
-import { useRouter } from 'next/router';
+import { useLocale } from '../contexts/LocaleContext';
 import en from '../locales/en.json';
 import ja from '../locales/ja.json';
 
 type Translations = typeof en;
 
 export const useTranslation = () => {
-  const router = useRouter();
-  const { locale } = router;
+  const { locale } = useLocale();
 
   const translations: Record<string, Translations> = {
     en,

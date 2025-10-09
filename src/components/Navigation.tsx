@@ -25,7 +25,6 @@ const Navigation: React.FC = () => {
     >
       <div className={styles.container}>
         <a href="#" className={styles.logo}>
-          <span className={styles.kanji}>和</span>
           <span className={styles.name}>Jacob Walton</span>
         </a>
 
