@@ -1,15 +1,14 @@
-import React from 'react';
-import { useRouter } from 'next/router';
+import type React from 'react';
 import { motion } from 'framer-motion';
+import { useLocale } from '../contexts/LocaleContext';
 import styles from '../styles/LanguageToggle.module.css';
 
 const LanguageToggle: React.FC = () => {
-  const router = useRouter();
-  const { locale } = router;
+  const { locale, setLocale } = useLocale();
 
   const toggleLanguage = () => {
     const newLocale = locale === 'en' ? 'ja' : 'en';
-    router.push(router.pathname, router.asPath, { locale: newLocale });
+    setLocale(newLocale);
   };
 
   return (

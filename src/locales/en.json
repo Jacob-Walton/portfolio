@@ -49,6 +49,9 @@
     "title": "Contact",
     "subtitle": "Available for interesting projects and opportunities.",
     "email": "Email",
-    "footer": "© 2024 Jacob Walton"
+    "footer": {
+      "tagline": "Developer & Student",
+      "legal": "Manchester, UK"
+    }
   }
 }
