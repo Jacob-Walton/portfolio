@@ -6,19 +6,19 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 WORKDIR /app
 COPY . .
 RUN pnpm install && pnpm run build
-RUN pnpm prune --prod
-RUN rm -rf node_modules/.cache
 
-# Stage 2: Run
-FROM node:23-slim
-WORKDIR /app
+# Stage 2: Serve static files with nginx
+FROM nginx:alpine
+WORKDIR /usr/share/nginx/html
 
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-COPY --from=builder /app/certs ./certs
-COPY --from=builder /app/public ./public
+# Remove default nginx static assets
+RUN rm -rf ./*
 
-ENV NODE_ENV=production
-USER node
-EXPOSE 3000
-CMD ["node", "server.js"]
+# Copy static files from builder
+COPY --from=builder /app/out ./
+
+# Copy nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

@@ -1,3 +1,33 @@
+# Documentation
 **/docs/*
+
+# Dependencies
 **/node_modules/*
+
+# Build output
 **/.next/*
+**/out/*
+
+# Development
+.git
+.gitignore
+README.md
+*.md
+
+# Testing
+coverage/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Certificates (not needed for nginx)
+certs/

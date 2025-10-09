@@ -2,7 +2,5 @@ services:
   app:
     build: .
     ports:
-      - "14452:3000"
-    environment:
-      NODE_ENV: production
+      - "14452:80"
     restart: unless-stopped
