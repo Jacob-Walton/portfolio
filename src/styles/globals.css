@@ -8,6 +8,8 @@
   --asagi: #7eb8c1;
   --bg-primary: var(--kinari);
   --bg-secondary: var(--gofun);
+  --bg-primary-rgb: 250, 248, 243;
+  --bg-secondary-rgb: 255, 255, 251;
   --text-primary: var(--sumi);
   --text-secondary: var(--hai);
   --accent: var(--fuji);
@@ -122,4 +124,26 @@ a:hover {
   .container {
     padding: 0 var(--space-3);
   }
+}
+
+html.alternative-theme {
+  --sumi: #0c0d0c;
+  --hai: #6b7370;
+  --gofun: #1f1f1d;
+  --kinari: #141413;
+  --fuji: #b84c5a;
+  --take: #4a6b4a;
+  --asagi: #e2c47e;
+  --bg-primary: #141413;
+  --bg-secondary: #1f1f1d;
+  --bg-primary-rgb: 20, 20, 19;
+  --bg-secondary-rgb: 31, 31, 29;
+  --text-primary: #f2ede5;
+  --text-secondary: #8c8880;
+  --accent: #b84c5a;
+}
+
+html.alternative-theme ::selection {
+  background-color: #b84c5a;
+  color: #f2ede5;
 }
