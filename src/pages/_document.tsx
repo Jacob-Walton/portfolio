@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 class MyDocument extends Document {
   render() {
@@ -13,6 +14,24 @@ class MyDocument extends Document {
           />
           <link rel="icon" href="/favicon.ico" />
           <meta name="theme-color" content="#faf8f3" />
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-0WL06QEB2L"
+            strategy="afterInteractive"
+          />
+          {/** biome-ignore lint/correctness/useUniqueElementIds: Google tag */}
+          <Script
+            id="google-analytics"
+            strategy="afterInteractive"
+            // biome-ignore lint/security/noDangerouslySetInnerHtml: Google tag
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-0WL06QEB2L');
+              `,
+            }}
+          />
         </Head>
         <body>
           <Main />
