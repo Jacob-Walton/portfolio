@@ -1,22 +1,18 @@
 {
   "nav": {
-    "about": "About",
     "projects": "Projects",
+    "about": "About",
     "contact": "Contact"
   },
   "hero": {
-    "greeting": "Jacob Walton",
     "role": "Developer",
     "location": "Manchester, UK",
-    "subtitle": "Student developer studying Computer Science, Mathematics, and Physics at A-Level. Currently building a database engine with its own SQL dialect.",
-    "viewWork": "View projects"
+    "subtitle": "Student developer based in Manchester. Currently studying A-Levels in Computer Science, Maths, and Physics."
   },
   "about": {
     "title": "About",
-    "lede": "I like building things from the ground up.",
-    "intro": "I'm based in Manchester, studying Computer Science, Mathematics, and Physics. My main project is MonoDB, a database engine with its own SQL dialect, built for my A-Level coursework. Alongside it I make web apps and command-line tools.",
+    "intro": "Currently studying A-Level Computer Science, Mathematics and Physics. Working on various projects including a full database management system with a custom SQL variant for my NEA.",
     "skills": {
-      "title": "Technologies",
       "languages": "Languages",
       "frontend": "Frontend",
       "data_cloud": "Data & Cloud",
@@ -25,34 +21,25 @@
   },
   "projects": {
     "title": "Projects",
-    "viewCode": "Source",
-    "viewProject": "View live",
-    "status": {
-      "complete": "Complete",
-      "active": "Active",
-      "archived": "Archived"
-    },
     "items": {
       "packagemanager": {
         "title": "PackageManager",
-        "description": "A lightweight command-line package manager written in Go. Installs .tar.gz packages with a single command."
+        "description": "A lightweight CLI-based package manager written in Go. Created to allow easy installation of .tar.gz packages"
       },
       "busesinfo": {
         "title": "Buses Info",
-        "description": "A web app that shows college bus times and bay information at a glance, replacing a slower, harder-to-read system."
+        "description": "Web application that presents college bus information and rankings in an accessible format. Improves on the existing system with better UX."
       },
       "nea": {
         "title": "MonoDB",
-        "description": "A database engine with its own SQL dialect and a management interface. Supports SQL, document, and key-value tables, with query optimisation and transactions. Built as my A-Level coursework project."
+        "description": "Full-featured database with custom SQL variant and management interface. Allows for SQL, NoSQL, and Redis style tables. Includes query optimization and transaction handling. (A-Level NEA Project)"
       }
     }
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "Open to interesting projects and opportunities. Email is the fastest way to reach me.",
-    "email": "Email",
+    "subtitle": "Available for interesting projects and opportunities.",
     "footer": {
-      "tagline": "Developer & Student",
       "legal": "Manchester, UK"
     }
   }

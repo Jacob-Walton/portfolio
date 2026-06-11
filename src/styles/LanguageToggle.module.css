@@ -1,20 +1,18 @@
 .toggle {
   background: none;
-  border: 1px solid var(--line-strong);
-  border-radius: 2px;
-  padding: 0.35rem 0.9rem;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  transition: border-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
-  font-family: var(--font-sans);
-  color: var(--text-primary);
-}
-
-.toggle:hover {
-  border-color: var(--accent);
-  color: var(--accent);
 }
 
 .text {
-  font-size: 0.8125rem;
-  letter-spacing: 0.04em;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.toggle:hover .text {
+  color: var(--accent);
 }

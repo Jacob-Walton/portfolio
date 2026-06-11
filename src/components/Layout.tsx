@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Navigation from './Navigation';
 import styles from '../styles/Layout.module.css';
 
 interface LayoutProps {
@@ -10,7 +9,6 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className={styles.layout}>
-      <Navigation />
       <motion.main
         className={styles.main}
         initial={{ opacity: 0 }}

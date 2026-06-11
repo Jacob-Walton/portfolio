@@ -8,11 +8,11 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500&family=Noto+Serif+JP:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..700;1,400..700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
             rel="stylesheet"
           />
           <link rel="icon" href="/favicon.ico" />
-          <meta name="theme-color" content="#f5f0e6" />
+          <meta name="theme-color" content="#fcfbf8" />
         </Head>
         <body>
           <Main />

@@ -1,37 +1,29 @@
 :root {
   /* Palette */
-  --paper: #f5f0e6;
-  --paper-raised: #fbf8f1;
-  --ink: #1d1a16;
-  --ink-soft: #6f675c;
-  --vermillion: #c0391b;
-  --olive: #6e7558;
-  --gold: #b08b3e;
+  --bg: #fcfbf8;
+  --ink: #16140f;
+  --muted: #716d64;
+  --accent: #c83a17;
 
-  /* Hairlines */
-  --line: rgba(29, 26, 22, 0.14);
-  --line-soft: rgba(29, 26, 22, 0.08);
-  --line-strong: rgba(29, 26, 22, 0.55);
+  --line: rgba(22, 20, 15, 0.14);
+  --line-soft: rgba(22, 20, 15, 0.08);
 
   /* Semantic aliases */
-  --bg-primary: var(--paper);
-  --bg-secondary: var(--paper-raised);
-  --bg-primary-rgb: 245, 240, 230;
-  --bg-secondary-rgb: 251, 248, 241;
+  --bg-primary: var(--bg);
+  --bg-secondary: var(--bg);
+  --bg-primary-rgb: 252, 251, 248;
+  --bg-secondary-rgb: 252, 251, 248;
   --text-primary: var(--ink);
-  --text-secondary: var(--ink-soft);
-  --accent: var(--vermillion);
+  --text-secondary: var(--muted);
 
   /* Aliases used by seasonal components */
-  --take: var(--olive);
+  --take: #5c6b4f;
   --asagi: #7eb8c1;
   --sumi: var(--ink);
-  --hai: var(--ink-soft);
+  --hai: var(--muted);
 
   /* Type */
-  --font-display: 'Fraunces', 'Noto Serif JP', Georgia, serif;
-  --font-serif: 'Noto Serif JP', Georgia, serif;
-  --font-sans: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Archivo', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, monospace;
 
   /* Space */
@@ -42,10 +34,7 @@
   --space-5: 3rem;
   --space-6: 4rem;
   --space-7: 6rem;
-  --space-8: 8rem;
-
-  /* Motion */
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --space-8: 9rem;
 }
 
 * {
@@ -63,21 +52,20 @@ body {
   font-family: var(--font-sans);
   color: var(--text-primary);
   background-color: var(--bg-primary);
-  line-height: 1.65;
+  line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background-color: var(--vermillion);
-  color: var(--paper);
+  background-color: var(--accent);
+  color: var(--bg);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 480;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 p {
@@ -94,24 +82,9 @@ button {
   color: inherit;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--line-strong);
-  border: 3px solid var(--bg-primary);
-  border-radius: 5px;
-}
-
-/* Shared section scaffolding */
+/* Shared scaffolding */
 .section {
-  padding: var(--space-8) 0;
+  padding: var(--space-8) 0 0;
 }
 
 .container {
@@ -122,12 +95,8 @@ button {
 }
 
 @media (max-width: 768px) {
-  :root {
-    font-size: 15px;
-  }
-
   .section {
-    padding: var(--space-6) 0;
+    padding: var(--space-7) 0 0;
   }
 
   .container {
@@ -150,25 +119,20 @@ button {
 
 /* Seasonal override */
 html.alternative-theme {
-  --paper: #141413;
-  --paper-raised: #1f1f1d;
+  --bg: #141413;
   --ink: #f2ede5;
-  --ink-soft: #8c8880;
-  --vermillion: #b84c5a;
-  --olive: #4a6b4a;
-  --gold: #e2c47e;
-  --line: rgba(242, 237, 229, 0.14);
+  --muted: #8c8880;
+  --accent: #b84c5a;
+  --line: rgba(242, 237, 229, 0.16);
   --line-soft: rgba(242, 237, 229, 0.08);
-  --line-strong: rgba(242, 237, 229, 0.5);
-  --bg-primary: var(--paper);
-  --bg-secondary: var(--paper-raised);
+  --bg-primary: var(--bg);
+  --bg-secondary: var(--bg);
   --bg-primary-rgb: 20, 20, 19;
-  --bg-secondary-rgb: 31, 31, 29;
+  --bg-secondary-rgb: 20, 20, 19;
   --text-primary: var(--ink);
-  --text-secondary: var(--ink-soft);
-  --accent: var(--vermillion);
-  --take: var(--olive);
-  --asagi: var(--gold);
+  --text-secondary: var(--muted);
+  --take: #4a6b4a;
+  --asagi: #e2c47e;
 }
 
 html.alternative-theme ::selection {
