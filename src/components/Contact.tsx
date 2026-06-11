@@ -3,21 +3,42 @@ import { motion } from 'framer-motion';
 import { useTranslation } from '../hooks/useTranslation';
 import styles from '../styles/Contact.module.css';
 
+const links = [
+  {
+    href: 'mailto:jacob-walton@konpeki.co.uk',
+    label: 'jacob-walton@konpeki.co.uk',
+    type: 'email',
+    external: false,
+  },
+  {
+    href: 'https://github.com/Jacob-Walton',
+    label: 'github.com/Jacob-Walton',
+    type: 'github',
+    external: true,
+  },
+  {
+    href: 'https://www.linkedin.com/in/jacob-walton-588764362',
+    label: 'linkedin.com/in/jacob-walton',
+    type: 'linkedin',
+    external: true,
+  },
+];
+
 const Contact: React.FC = () => {
   const { t } = useTranslation();
-  const [currentTime, setCurrentTime] = useState('');
-  
+  const [currentTime, setCurrentTime] = useState<string | null>(null);
+
   useEffect(() => {
     const updateTime = () => {
-      const now = new Date();
-      const londonTime = now.toLocaleString('en-GB', {
-        timeZone: 'Europe/London',
-        hour: '2-digit',
-        minute: '2-digit',
-      });
-      setCurrentTime(londonTime);
+      setCurrentTime(
+        new Date().toLocaleString('en-GB', {
+          timeZone: 'Europe/London',
+          hour: '2-digit',
+          minute: '2-digit',
+        })
+      );
     };
-    
+
     updateTime();
     const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
@@ -25,74 +46,46 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className={`${styles.contact} section`}>
-      <div className={styles.container}>
+      <div className="container">
         <motion.div
-          className={styles.content}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2 }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className={styles.invitation}>
+          <div className={styles.header}>
+            <span className={styles.indexNumber}>03</span>
             <h2 className={styles.title}>{t('contact.title')}</h2>
-            <p className={styles.message}>{t('contact.subtitle')}</p>
           </div>
 
-          <div className={styles.presence}>
-            <div className={styles.location}>
-              <span className={styles.detail}>Manchester, UK</span>
-              <span className={styles.time}>{currentTime}</span>
-            </div>
-            
-            <div className={styles.connections}>
-              <motion.a 
-                href="mailto:jacob-walton@konpeki.co.uk" 
+          <p className={styles.invitation}>{t('contact.subtitle')}</p>
+
+          <div className={styles.links}>
+            {links.map((link) => (
+              <a
+                key={link.type}
+                href={link.href}
                 className={styles.link}
-                whileHover={{ x: 10 }}
-                transition={{ duration: 0.3 }}
+                {...(link.external
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
               >
-                <span className={styles.linkText}>jacob-walton@konpeki.co.uk</span>
-                <span className={styles.linkType}>email</span>
-              </motion.a>
-              
-              <motion.a 
-                href="https://github.com/Jacob-Walton" 
-                className={styles.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ x: 10 }}
-                transition={{ duration: 0.3 }}
-              >
-                <span className={styles.linkText}>github.com/Jacob-Walton</span>
-                <span className={styles.linkType}>code</span>
-              </motion.a>
-              
-              <motion.a 
-                href="https://www.linkedin.com/in/jacob-walton-588764362" 
-                className={styles.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ x: 10 }}
-                transition={{ duration: 0.3 }}
-              >
-                <span className={styles.linkText}>linkedin.com/in/jacob-walton</span>
-                <span className={styles.linkType}>network</span>
-              </motion.a>
-            </div>
+                <span className={styles.linkType}>{link.type}</span>
+                <span className={styles.linkText}>{link.label}</span>
+                <span className={styles.linkArrow} aria-hidden="true">
+                  →
+                </span>
+              </a>
+            ))}
           </div>
 
-          <div className={styles.signature}>
-            <div className={styles.footerContent}>
-              <div className={styles.copyrightSection}>
-                <p className={styles.copyright}>
-                  © {new Date().getFullYear()} Jacob Walton. All rights reserved.
-                </p>
-                <p className={styles.legalText}>
-                  {t('contact.footer.legal')}
-                </p>
-              </div>
-            </div>
-          </div>
+          <footer className={styles.footer}>
+            <span>© {new Date().getFullYear()} Jacob Walton</span>
+            <span className={styles.footerPlace}>
+              {t('contact.footer.legal')}
+              {currentTime ? ` — ${currentTime}` : ''}
+            </span>
+          </footer>
         </motion.div>
       </div>
     </section>

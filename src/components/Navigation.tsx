@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import LanguageToggle from './LanguageToggle';
 import { useScrollDirection } from '../hooks/useScrollDirection';
 import { useTranslation } from '../hooks/useTranslation';
 import styles from '../styles/Navigation.module.css';
 
+const navItems = [
+  { key: 'about', href: '#about', index: '01' },
+  { key: 'projects', href: '#projects', index: '02' },
+  { key: 'contact', href: '#contact', index: '03' },
+];
+
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const scrollDirection = useScrollDirection();
   const { t } = useTranslation();
-
-  const navItems = [
-    { key: 'about', href: '#about' },
-    { key: 'projects', href: '#projects' },
-    { key: 'contact', href: '#contact' },
-  ];
 
   return (
     <motion.nav
@@ -25,6 +25,7 @@ const Navigation: React.FC = () => {
     >
       <div className={styles.container}>
         <a href="#" className={styles.logo}>
+          <span className={styles.mark} aria-hidden="true" />
           <span className={styles.name}>Jacob Walton</span>
         </a>
 
@@ -33,6 +34,7 @@ const Navigation: React.FC = () => {
             {navItems.map((item) => (
               <li key={item.key}>
                 <a href={item.href} className={styles.navLink}>
+                  <span className={styles.navIndex}>{item.index}</span>
                   {t(`nav.${item.key}`)}
                 </a>
               </li>
@@ -45,6 +47,7 @@ const Navigation: React.FC = () => {
           className={styles.menuToggle}
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
+          aria-expanded={isOpen}
         >
           <span className={`${styles.bar} ${isOpen ? styles.open : ''}`} />
           <span className={`${styles.bar} ${isOpen ? styles.open : ''}`} />
@@ -68,6 +71,7 @@ const Navigation: React.FC = () => {
                     className={styles.mobileNavLink}
                     onClick={() => setIsOpen(false)}
                   >
+                    <span className={styles.navIndex}>{item.index}</span>
                     {t(`nav.${item.key}`)}
                   </a>
                 </li>

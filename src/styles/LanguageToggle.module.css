@@ -1,10 +1,10 @@
 .toggle {
   background: none;
-  border: 1px solid var(--text-secondary);
-  border-radius: 20px;
-  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  padding: 0.35rem 0.9rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: border-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
   font-family: var(--font-sans);
   color: var(--text-primary);
 }
@@ -15,6 +15,6 @@
 }
 
 .text {
-  font-size: 0.9rem;
-  font-weight: 300;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
 }

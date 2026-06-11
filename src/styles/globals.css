@@ -1,20 +1,40 @@
 :root {
-  --sumi: #1c1c1c;
-  --hai: #828282;
-  --gofun: #fffffb;
-  --kinari: #faf8f3;
-  --fuji: #a59aca;
-  --take: #6b7c65;
+  /* Palette */
+  --paper: #f5f0e6;
+  --paper-raised: #fbf8f1;
+  --ink: #1d1a16;
+  --ink-soft: #6f675c;
+  --vermillion: #c0391b;
+  --olive: #6e7558;
+  --gold: #b08b3e;
+
+  /* Hairlines */
+  --line: rgba(29, 26, 22, 0.14);
+  --line-soft: rgba(29, 26, 22, 0.08);
+  --line-strong: rgba(29, 26, 22, 0.55);
+
+  /* Semantic aliases */
+  --bg-primary: var(--paper);
+  --bg-secondary: var(--paper-raised);
+  --bg-primary-rgb: 245, 240, 230;
+  --bg-secondary-rgb: 251, 248, 241;
+  --text-primary: var(--ink);
+  --text-secondary: var(--ink-soft);
+  --accent: var(--vermillion);
+
+  /* Aliases used by seasonal components */
+  --take: var(--olive);
   --asagi: #7eb8c1;
-  --bg-primary: var(--kinari);
-  --bg-secondary: var(--gofun);
-  --bg-primary-rgb: 250, 248, 243;
-  --bg-secondary-rgb: 255, 255, 251;
-  --text-primary: var(--sumi);
-  --text-secondary: var(--hai);
-  --accent: var(--fuji);
-  --font-serif: 'Noto Serif JP', serif;
-  --font-sans: 'Inter', sans-serif;
+  --sumi: var(--ink);
+  --hai: var(--ink-soft);
+
+  /* Type */
+  --font-display: 'Fraunces', 'Noto Serif JP', Georgia, serif;
+  --font-serif: 'Noto Serif JP', Georgia, serif;
+  --font-sans: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, monospace;
+
+  /* Space */
   --space-1: 0.5rem;
   --space-2: 1rem;
   --space-3: 1.5rem;
@@ -23,6 +43,9 @@
   --space-6: 4rem;
   --space-7: 6rem;
   --space-8: 8rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 * {
@@ -40,51 +63,40 @@ body {
   font-family: var(--font-sans);
   color: var(--text-primary);
   background-color: var(--bg-primary);
-  line-height: 1.6;
+  line-height: 1.65;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background-color: var(--sakura);
-  color: var(--sumi);
+  background-color: var(--vermillion);
+  color: var(--paper);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  line-height: 1.3;
-}
-
-h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-}
-
-h2 {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-}
-
-h3 {
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-family: var(--font-display);
+  font-weight: 480;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
 p {
-  margin-bottom: var(--space-3);
-  max-width: 65ch;
+  max-width: 64ch;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: opacity 0.3s ease;
 }
 
-a:hover {
-  opacity: 0.7;
+button {
+  font: inherit;
+  color: inherit;
 }
 
-/* Custom scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -92,15 +104,16 @@ a:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--hai);
-  border-radius: 4px;
+  background: var(--line-strong);
+  border: 3px solid var(--bg-primary);
+  border-radius: 5px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
+/* Shared section scaffolding */
+.section {
+  padding: var(--space-8) 0;
 }
 
-/* Utility classes */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -108,39 +121,54 @@ a:hover {
   padding: 0 var(--space-4);
 }
 
-.section {
-  padding: var(--space-7) 0;
-}
-
 @media (max-width: 768px) {
   :root {
-    font-size: 14px;
+    font-size: 15px;
   }
-  
+
   .section {
-    padding: var(--space-5) 0;
+    padding: var(--space-6) 0;
   }
-  
+
   .container {
     padding: 0 var(--space-3);
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Seasonal override */
 html.alternative-theme {
-  --sumi: #0c0d0c;
-  --hai: #6b7370;
-  --gofun: #1f1f1d;
-  --kinari: #141413;
-  --fuji: #b84c5a;
-  --take: #4a6b4a;
-  --asagi: #e2c47e;
-  --bg-primary: #141413;
-  --bg-secondary: #1f1f1d;
+  --paper: #141413;
+  --paper-raised: #1f1f1d;
+  --ink: #f2ede5;
+  --ink-soft: #8c8880;
+  --vermillion: #b84c5a;
+  --olive: #4a6b4a;
+  --gold: #e2c47e;
+  --line: rgba(242, 237, 229, 0.14);
+  --line-soft: rgba(242, 237, 229, 0.08);
+  --line-strong: rgba(242, 237, 229, 0.5);
+  --bg-primary: var(--paper);
+  --bg-secondary: var(--paper-raised);
   --bg-primary-rgb: 20, 20, 19;
   --bg-secondary-rgb: 31, 31, 29;
-  --text-primary: #f2ede5;
-  --text-secondary: #8c8880;
-  --accent: #b84c5a;
+  --text-primary: var(--ink);
+  --text-secondary: var(--ink-soft);
+  --accent: var(--vermillion);
+  --take: var(--olive);
+  --asagi: var(--gold);
 }
 
 html.alternative-theme ::selection {
