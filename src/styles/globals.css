@@ -84,7 +84,7 @@ button {
 
 /* Shared scaffolding */
 .section {
-  padding: var(--space-8) 0 0;
+  padding: var(--space-7) 0 0;
 }
 
 .container {
@@ -96,7 +96,7 @@ button {
 
 @media (max-width: 768px) {
   .section {
-    padding: var(--space-7) 0 0;
+    padding: var(--space-6) 0 0;
   }
 
   .container {

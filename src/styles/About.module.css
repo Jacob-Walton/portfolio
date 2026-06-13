@@ -22,7 +22,7 @@
   line-height: 1.5;
   letter-spacing: -0.015em;
   max-width: 36em;
-  padding: var(--space-5) 0 var(--space-6);
+  padding: var(--space-5) 0;
 }
 
 .stacks {
@@ -54,7 +54,7 @@
 
 @media (max-width: 768px) {
   .intro {
-    padding: var(--space-4) 0 var(--space-5);
+    padding: var(--space-4) 0;
   }
 
   .stackRow {

@@ -32,32 +32,32 @@ const Hero: React.FC = () => {
           <LanguageToggle />
         </div>
 
-        <div className={styles.spacer} />
+        <div className={styles.body}>
+          <motion.p
+            className={styles.intro}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+          >
+            {t("hero.subtitle")}
+          </motion.p>
 
-        <motion.p
-          className={styles.intro}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          {t("hero.subtitle")}
-        </motion.p>
+          <motion.h1
+            className={styles.name}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            Jacob
+            <span>Walton</span>
+          </motion.h1>
 
-        <motion.h1
-          className={styles.name}
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          Jacob
-          <span>Walton</span>
-        </motion.h1>
+          <div className={styles.rule} />
 
-        <div className={styles.rule} />
-
-        <div className={styles.meta}>
-          <span>{t("hero.role")}</span>
-          <span>{t("hero.location")}</span>
+          <div className={styles.meta}>
+            <span>{t("hero.role")}</span>
+            <span>{t("hero.location")}</span>
+          </div>
         </div>
       </div>
     </header>
